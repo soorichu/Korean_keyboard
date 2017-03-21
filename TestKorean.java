@@ -1,5 +1,4 @@
 import java.io.*;
-import Korean;
 
 public class TestKorean {
 
@@ -98,9 +97,24 @@ public class TestKorean {
 			if(j%10==0) 
 				System.out.println();
 		}
-		
-
-
+        
+    
+        //4. Test input Jamo char
+        System.out.println("\nInputing Korean Jamo======================================");
+        System.out.println("inputing : \u110b \u1161 \u1102 \u1102 \u1167 \u110b");
+        str = Korean.koreanBuild("", '\u110b');
+        System.out.println(str);
+        str = Korean.koreanBuild(str, '\u1161');
+        System.out.println(str);
+        str = Korean.koreanBuild(str, '\u1102');
+        System.out.println(str);
+        str = Korean.koreanBuild(str, '\u1102');
+        System.out.println(str);
+        str = Korean.koreanBuild(str, '\u1167');
+        System.out.println(str);
+        str = Korean.koreanBuild(str, '\u110b');
+        System.out.println(str);
+        
 		
 	}
 

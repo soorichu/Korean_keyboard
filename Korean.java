@@ -68,15 +68,7 @@ public class Korean {
 	    StringBuilder enstr = new StringBuilder(); //constructed by english
 	    StringBuilder inputEn = new StringBuilder(); //save input english char
 	    
-	    String en;
-	    
-	    if(( isType(e, "LEAD") ||isType(e, "VOWEL") ||isType(e, "TAIL")) && !isType(e, "COMP")) {
-	    	
-	    	en = convert(convert(e, "ENG"), "COMP");
-	    
-	    }else{
-	    	en = "" + e;
-	    }
+	    String en = ""+e;
 			    
 	    //construct korean -> kostr, enstr
 		if(korean.length()>0){
