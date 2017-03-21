@@ -1,6 +1,5 @@
-package testing;
 import java.io.*;
-import testing.Korean;
+import Korean;
 
 public class TestKorean {
 
@@ -11,15 +10,15 @@ public class TestKorean {
 		//1. useage. prototype is koreanBuild(String, char) and use like below
 		System.out.println("\n1. koreanBuild(String, char) test ======================================");
 		String str = Korean.koreanBuild("", '\u1100');
-		System.out.println("test1. ㄱ : "+str);
+		System.out.println("test1. : "+str);
 		str = Korean.koreanBuild(str, '\u1161');
-		System.out.println("test2. 가 : "+str);
+		System.out.println("test2. : "+str);
 		str = Korean.koreanBuild(str, '\u11a8');
-		System.out.println("test3. 각 : "+str);
+		System.out.println("test3. : "+str);
 		str = Korean.koreanBuild(str, '\u314e');
-		System.out.println("test4. 각ㅎ : "+str);
+		System.out.println("test4. : "+str);
 		str = Korean.koreanBuild(str, '\u314f');
-		System.out.println("test5. 각하 : "+str);
+		System.out.println("test5. : "+str);
 		System.out.println();
 		
 		//2. Input TEST

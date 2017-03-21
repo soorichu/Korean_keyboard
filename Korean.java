@@ -1,5 +1,3 @@
-package testing;
-
 public class Korean {
 
 	//Lead of hangul Jamo(ChoSeung) and those English KeyCode.
@@ -24,7 +22,7 @@ public class Korean {
 				{"\u11be", "c"}, {"\u11bf", "z"}, {"\u11c0", "x"}, {"\u11c1", "v"}, {"\u11c2", "g"} };
 
 	//Consonant of hangul Compatibility and those English KeyCode.
-	public static final String[][] CC = { {"\u3131", "r"}, {"\u3132", "R"}, {"\u3133", "rt"}, {"\u3134", "s"}, 
+	private static final String[][] CC = { {"\u3131", "r"}, {"\u3132", "R"}, {"\u3133", "rt"}, {"\u3134", "s"}, 
 				{"\u3135", "sw"}, {"\u3136", "sg"}, {"\u3137", "e"}, {"\u3138", "E"}, {"\u3139", "f"}, {"\u313a", "fr"}, 
 				{"\u313b", "fa"}, {"\u313c", "fq"}, {"\u313d", "ft"}, {"\u313e", "fx"}, {"\u313f", "fv"}, {"\u3140", "fg"}, 
 				{"\u3141", "a"}, {"\u3142", "q"}, {"\u3143", "Q"}, {"\u3144", "qt"}, {"\u3145", "t"}, {"\u3146", "T"}, 
@@ -32,7 +30,7 @@ public class Korean {
 				{"\u314d", "v"}, {"\u314e", "g"} };
 
 	//Vowel of hangul Compatibility and those English KeyCode.
-	public static final String[][] VC = { {"\u314f", "k"} , {"\u3150", "o"}, {"\u3151", "i"}, {"\u3152", "O"}, 
+	private static final String[][] VC = { {"\u314f", "k"} , {"\u3150", "o"}, {"\u3151", "i"}, {"\u3152", "O"}, 
 				{"\u3153", "j"}, {"\u3154", "p"}, {"\u3155", "u"}, {"\u3156", "P"}, {"\u3157", "h"}, {"\u3158", "hk"}, 
 				{"\u3159", "ho"}, {"\u315a", "hl"}, {"\u315b", "y"}, {"\u315c", "n"}, {"\u315d", "nj"}, {"\u315e", "np"}, 
 				{"\u315f", "nl"}, {"\u3160", "b"}, {"\u3161", "m"}, {"\u3162", "ml"}, {"\u3163", "l"}, {"\u318d", "K"} };
@@ -70,8 +68,16 @@ public class Korean {
 	    StringBuilder enstr = new StringBuilder(); //constructed by english
 	    StringBuilder inputEn = new StringBuilder(); //save input english char
 	    
-	    String en = ""+e;
-		
+	    String en;
+	    
+	    if(( isType(e, "LEAD") ||isType(e, "VOWEL") ||isType(e, "TAIL")) && !isType(e, "COMP")) {
+	    	
+	    	en = convert(convert(e, "ENG"), "COMP");
+	    
+	    }else{
+	    	en = "" + e;
+	    }
+			    
 	    //construct korean -> kostr, enstr
 		if(korean.length()>0){
 			String fko = flattenKorean(korean);
@@ -647,6 +653,7 @@ public class Korean {
     	return getUnicode(sb.toString());
     }
     
+
 
 }
 
